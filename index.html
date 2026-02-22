@@ -29,21 +29,28 @@
     <button onclick="nextPage(4)">Next ➡</button>
   </div>
 
-  <!-- Page 4 -->
-  <div id="page4" class="page">
-    <h2>Will you go on a date with me? 💌</h2>
-    <div class="btn-group">
-      <button onclick="saveAnswer('Yes 😍')">Yes 😍</button>
-      <button id="noBtn">No 🙄</button>
-    </div>
-  </div>
+<!-- Page 4 - Selfie -->
+<div id="page4" class="page">
+  <h2>Send me a cute selfie 😘</h2>
+  <input type="file" id="selfie" accept="image/*" capture="user">
+  <img id="preview" width="200" style="display:none; border-radius:10px;">
+  <br>
+  <button onclick="nextPage(5)">Next ➡</button>
+</div>
 
-  <!-- Page 5 -->
-  <div id="page5" class="page">
-    <h1>❤️ You just made my day ❤️</h1>
-    <p>I knew you couldn’t resist me 😌</p>
+<!-- Page 5 -->
+<div id="page5" class="page">
+  <h2>Will you go on a date with me? 💌</h2>
+  <div class="btn-group">
+    <button onclick="saveAnswer('Yes 😍')">Yes 😍</button>
+    <button id="noBtn">No 🙄</button>
   </div>
+</div>
 
+<!-- Final Page -->
+<div id="page6" class="page">
+  <h1>❤️ You just made my day ❤️</h1>
+</div>
 </div>
 
 <script type="module" src="script.js"></script>
