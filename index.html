@@ -2,26 +2,7 @@
 <html>
 <head>
   <title>Valentine Questions ❤️</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      margin-top: 100px;
-      background: #ffe6f0;
-    }
-    input, textarea {
-      width: 300px;
-      padding: 10px;
-      margin: 10px;
-    }
-    button {
-      padding: 10px 20px;
-      background: red;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -31,45 +12,9 @@
 
 <input type="text" id="name" placeholder="Your Name"><br>
 <textarea id="answer" placeholder="Your Answer"></textarea><br>
-<button onclick="submitAnswer()">Submit</button>
+<button id="submitBtn">Submit</button>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyD6zHebKldtOhmsmujoJ981Y8FAJtjDIvE",
-  authDomain: "valentine-questions.firebaseapp.com",
-  projectId: "valentine-questions",
-  storageBucket: "valentine-questions.firebasestorage.app",
-  messagingSenderId: "192981325674",
-  appId: "1:192981325674:web:92816f47eb1a368e01b713",
-  measurementId: "G-9JEMVQWEPT"
-};
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  window.submitAnswer = async function() {
-    const name = document.getElementById("name").value;
-    const answer = document.getElementById("answer").value;
-
-    if(name === "" || answer === "") {
-      alert("Fill all fields");
-      return;
-    }
-
-    await addDoc(collection(db, "valentine_answers"), {
-      name: name,
-      answer: answer,
-      time: new Date()
-    });
-
-    alert("Submitted ❤️");
-    document.getElementById("name").value = "";
-    document.getElementById("answer").value = "";
-  }
-</script>
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
