@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Valentine Questions ❤️</title>
+  <title>Valentine Special ❤️</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>💖 Valentine Special 💖</h1>
+<div class="container">
 
-<h3>Do you love me?</h3>
+  <!-- Page 1 -->
+  <div id="page1" class="page active">
+    <h1>💖 Hey Beautiful 💖</h1>
+    <p>I have something special for you...</p>
+    <button onclick="nextPage(2)">Start ❤️</button>
+  </div>
 
-<input type="text" id="name" placeholder="Your Name"><br>
-<textarea id="answer" placeholder="Your Answer"></textarea><br>
-<button id="submitBtn">Submit</button>
+  <!-- Page 2 -->
+  <div id="page2" class="page">
+    <h2>When did you start liking me? 😏</h2>
+    <input type="text" id="q1" placeholder="Tell me honestly...">
+    <button onclick="nextPage(3)">Next ➡</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div id="page3" class="page">
+    <h2>What do you like most about me? 🥰</h2>
+    <textarea id="q2" placeholder="My smile? My attitude? 😎"></textarea>
+    <button onclick="nextPage(4)">Next ➡</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div id="page4" class="page">
+    <h2>Will you go on a date with me? 💌</h2>
+    <div class="btn-group">
+      <button onclick="saveAnswer('Yes 😍')">Yes 😍</button>
+      <button id="noBtn">No 🙄</button>
+    </div>
+  </div>
+
+  <!-- Page 5 -->
+  <div id="page5" class="page">
+    <h1>❤️ You just made my day ❤️</h1>
+    <p>I knew you couldn’t resist me 😌</p>
+  </div>
+
+</div>
 
 <script type="module" src="script.js"></script>
 

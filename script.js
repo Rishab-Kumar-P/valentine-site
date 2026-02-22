@@ -14,30 +14,42 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const submitBtn = document.getElementById("submitBtn");
+let answers = {};
 
-submitBtn.addEventListener("click", async () => {
-  const name = document.getElementById("name").value;
-  const answer = document.getElementById("answer").value;
+window.nextPage = function(pageNumber) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById("page" + pageNumber).classList.add("active");
 
-  if (name === "" || answer === "") {
-    alert("Fill all fields");
-    return;
+  if(pageNumber === 3) {
+    answers.q1 = document.getElementById("q1").value;
   }
+
+  if(pageNumber === 4) {
+    answers.q2 = document.getElementById("q2").value;
+  }
+}
+
+window.saveAnswer = async function(response) {
+  answers.q3 = response;
 
   try {
     await addDoc(collection(db, "valentine_answers"), {
-      name: name,
-      answer: answer,
+      answers: answers,
       time: new Date()
     });
 
-    alert("Submitted ❤️");
-
-    document.getElementById("name").value = "";
-    document.getElementById("answer").value = "";
+    nextPage(5);
 
   } catch (error) {
-    console.error("Error adding document: ", error);
+    console.error("Error:", error);
   }
+};
+
+/* 😈 Make NO button run away */
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.position = "absolute";
+  noBtn.style.top = Math.random() * 300 + "px";
+  noBtn.style.left = Math.random() * 300 + "px";
 });

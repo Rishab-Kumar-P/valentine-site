@@ -1,29 +1,53 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
   text-align: center;
+}
+
+.container {
   margin-top: 100px;
-  background: #ffe6f0;
+}
+
+.page {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.page.active {
+  display: block;
 }
 
 input, textarea {
   width: 300px;
   padding: 10px;
-  margin: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  margin: 15px;
+  border-radius: 10px;
+  border: none;
 }
 
 button {
-  padding: 10px 20px;
-  background: red;
-  color: white;
+  padding: 12px 20px;
+  margin: 10px;
+  background: white;
+  color: #ff4d6d;
   border: none;
+  border-radius: 20px;
   cursor: pointer;
-  border-radius: 8px;
+  font-weight: bold;
   transition: 0.3s;
 }
 
 button:hover {
-  background: darkred;
-  transform: scale(1.05);
+  transform: scale(1.1);
+}
+
+.btn-group {
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
